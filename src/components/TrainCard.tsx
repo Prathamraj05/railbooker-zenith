@@ -8,7 +8,7 @@ import {
   ChevronsUpDown,
   Compass,
   BedDouble,
-  Train
+  Train as TrainIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 

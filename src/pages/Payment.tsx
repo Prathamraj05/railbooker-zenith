@@ -32,10 +32,8 @@ const Payment = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null);
   const [paymentSuccessful, setPaymentSuccessful] = useState(false);
   
-  // Simulate payment processing
   useEffect(() => {
     if (selectedPaymentMethod) {
-      // Simulate API call
       setTimeout(() => {
         setPaymentSuccessful(true);
       }, 2000);
@@ -44,12 +42,10 @@ const Payment = () => {
     }
   }, [selectedPaymentMethod]);
   
-  // Handle payment method selection
   const handlePaymentMethodSelect = (methodId: string) => {
     setSelectedPaymentMethod(methodId);
   };
   
-  // Handle continue to ticket
   const handleContinueToTicket = () => {
     if (!trainId || !dateString || !classTypeParam || !passengersString) {
       toast.error("Missing booking information");
@@ -57,19 +53,14 @@ const Payment = () => {
       return;
     }
     
-    // Generate a PNR (mock)
     const pnr = `PNR${Math.floor(Math.random() * 1000000)}`;
-    
-    // Calculate fare (mock)
     const fare = 1200;
     
-    // Navigate to ticket view with booking details
     navigate(
       `/ticket?pnr=${pnr}&train=${trainId}&date=${dateString}&class=${classTypeParam}&passengers=${passengersString}&fare=${fare}`
     );
   };
   
-  // Go back to booking details
   const goToBookingDetails = () => {
     navigate(`/booking?train=${trainId}&date=${dateString}&class=${classTypeParam}`);
   };
@@ -78,7 +69,6 @@ const Payment = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      {/* Payment Container */}
       <div className="pt-24 pb-16 px-4 md:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center text-sm text-muted-foreground mb-4">
@@ -124,7 +114,6 @@ const Payment = () => {
                     {paymentMethods.find(m => m.id === selectedPaymentMethod)?.name}
                   </h3>
                   
-                  {/* Payment Form (Mock) */}
                   {selectedPaymentMethod === "card" && (
                     <div className="space-y-4">
                       <div>
@@ -184,7 +173,6 @@ const Payment = () => {
             </CardFooter>
           </Card>
           
-          {/* Back Button */}
           <Button
             variant="ghost"
             className="mt-4 flex items-center"

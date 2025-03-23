@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
@@ -71,7 +70,7 @@ const TrainCard = ({ train, date }: TrainCardProps) => {
           {/* Train Info */}
           <div className="flex flex-col">
             <div className="flex items-center mb-1">
-              <Train className="w-5 h-5 text-rail mr-2" />
+              <TrainIcon className="w-5 h-5 text-rail mr-2" />
               <h3 className="text-lg font-bold text-foreground">{train.name}</h3>
               <div className="ml-2 px-2 py-0.5 bg-gray-100 rounded text-xs font-medium">
                 {train.number}
